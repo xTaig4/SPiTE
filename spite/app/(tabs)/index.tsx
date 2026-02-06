@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { FlatList, Platform, StyleSheet } from "react-native";
+import { FlatList, Platform, StyleSheet, View } from "react-native";
 import { useTheme } from "@/hooks/use-theme";
 import { Theme } from "@/constants/themes";
 
@@ -7,11 +7,17 @@ export default function HomeScreen() {
   const { theme } = useTheme();
   const styles = createStyles(theme);
   return (
-    <view style={styles.container}>
-      <view style={styles.content}></view>
-      <view style={styles.content}></view>
-      <view style={styles.content}></view>
-    </view>
+    <View >
+      <View style={styles.container}>
+        <View style={styles.content}></View>
+        <View style={styles.content}></View>
+        <View style={styles.content}></View>
+        <View style={styles.content}></View>
+        <View style={styles.content}></View>
+        <View style={styles.content}></View>
+      </View>
+    </View>
+
   );
 }
 
@@ -25,10 +31,13 @@ const createStyles = (theme: Theme) =>
       justifyContent: "center",
     },
     content: {
-      width: 100,
+      width: 150,
       height: 100,
       margin: 10,
       padding: 20,
+      borderRadius: 10,
+      borderWidth: 5,
+      borderColor: theme.border,
       backgroundColor: theme.primary,
     },
   });
