@@ -1,8 +1,8 @@
 export const Themes = {
   light: {
-    primary: "#cad3ab",
-    background: "rgb(248, 250, 223)",
-    surface: "#e7e3e3ff",
+    primary: "#dbe4bbff",
+    background: "rgba(237, 243, 159, 1)",
+    surface: "#e6e7e3ff",
     text: "#2c2c2cff",
     textSecondary: "#c0bd00ff",
     border: "#E0E0E0",
