@@ -1,11 +1,11 @@
 export const Themes = {
   light: {
-    primary: "#dbe4bbff",
-    background: "rgba(237, 243, 159, 1)",
+    primary: "rgb(240, 255, 190)",
+    background: "rgb(254, 255, 240)",
     surface: "#e6e7e3ff",
     text: "#2c2c2cff",
     textSecondary: "#c0bd00ff",
-    border: "#E0E0E0",
+    border: "#474747",
     selectedHighlight: "#d0dd58ff",
     selectedText: "#000000",
   },
