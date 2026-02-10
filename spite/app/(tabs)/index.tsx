@@ -3,6 +3,7 @@ import { FlatList, Platform, StyleSheet, View, Pressable } from "react-native";
 import { useTheme } from "@/hooks/use-theme";
 import { Theme } from "@/constants/themes";
 import { useState } from "react";
+import PlayButton from "@/app/components/PlayButton";
 
 export default function HomeScreen() {
   const { theme } = useTheme();
@@ -106,29 +107,8 @@ export default function HomeScreen() {
           <Image style={styles.coverContent} source={{ uri: cover }} />
         ) : null}
       </View>
-      <View style={styles.controlsContainer}>
-        <Pressable style={styles.controlButton}>
-          <Image
-            source={require("@/assets/images/next.png")}
-            style={[styles.controlIcon, { transform: [{ rotate: "180deg" }] }]}
-            contentFit="contain"
-          />
-        </Pressable>
-        <Pressable style={styles.controlButton}>
-          <Image
-            source={require("@/assets/images/play-button.png")}
-            style={styles.controlIcon}
-            contentFit="contain"
-          />
-        </Pressable>
-        <Pressable style={styles.controlButton}>
-          <Image
-            source={require("@/assets/images/next.png")}
-            style={[styles.controlIcon]}
-            contentFit="contain"
-          />
-        </Pressable>
-      </View>
+
+      <PlayButton />
     </View>
   );
 }
