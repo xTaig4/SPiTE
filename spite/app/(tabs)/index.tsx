@@ -14,16 +14,24 @@ export default function HomeScreen() {
     "https://i.pinimg.com/736x/be/7e/f6/be7ef6f955a1b1c6a9007f8497c2a0e1.jpg",
   );
 
+  const playList = [
+    "https://i.pinimg.com/736x/43/35/0a/43350a80dfb2fc1f68d2532012e0e95a.jpg",
+    "https://i.pinimg.com/1200x/45/6e/0f/456e0f3e6c257a56c47faa0e3e412732.jpg",
+    "https://i.pinimg.com/1200x/d4/9f/f5/d49ff5a0d7b892e183f317cca549d040.jpg",
+    "https://i.pinimg.com/736x/08/f0/bf/08f0bf82212d4eb3a95065fa45b9476d.jpg",
+    "https://i.pinimg.com/1200x/6e/51/80/6e5180230469d403ff660492b12ccb60.jpg",
+    "https://i.pinimg.com/1200x/a3/7b/3d/a37b3de9bc7ea57f8ff41dfda0c222be.jpg",
+  ];
+
   return (
     <View style={styles.pageContainer}>
-      <Favourites cover={cover} setCover={setCover} />
+      <Favourites setCover={setCover} playList={playList} />
       <View>
         {cover ? (
           <Image style={styles.coverContent} source={{ uri: cover }} />
         ) : null}
       </View>
-
-      <PlayButton />
+      <PlayButton setCover={setCover} playList={playList} />
     </View>
   );
 }
