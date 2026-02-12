@@ -5,17 +5,17 @@ import { Image } from "expo-image";
 import { useState } from "react";
 
 export default function PlayButton() {
-    const { theme } = useTheme();
-    const styles = createStyles(theme);
-    const [isPlaying, setIsPlaying] = useState(false);
+  const { theme } = useTheme();
+  const styles = createStyles(theme);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-   const togglePlay = () => {
-     setIsPlaying((prev) => !prev);
-    }; 
-    
+  const togglePlay = () => {
+    setIsPlaying((prev) => !prev);
+  };
+
   return (
     <View style={styles.controlsContainer}>
-      <Pressable style={styles.controlButton} >
+      <Pressable style={styles.controlButton}>
         <Image
           source={require("@/assets/images/next.png")}
           style={[styles.controlIcon, { transform: [{ rotate: "180deg" }] }]}
@@ -24,12 +24,16 @@ export default function PlayButton() {
       </Pressable>
       <Pressable style={styles.controlButton} onPress={togglePlay}>
         <Image
-          source={isPlaying ? require("@/assets/images/pause.png") : require("@/assets/images/play-button.png")}
+          source={
+            isPlaying
+              ? require("@/assets/images/pause.png")
+              : require("@/assets/images/play-button.png")
+          }
           style={styles.controlIcon}
           contentFit="contain"
         />
       </Pressable>
-      <Pressable style={styles.controlButton} >
+      <Pressable style={styles.controlButton}>
         <Image
           source={require("@/assets/images/next.png")}
           style={[styles.controlIcon]}
