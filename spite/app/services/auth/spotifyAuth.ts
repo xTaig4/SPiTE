@@ -20,7 +20,7 @@ export const spotifyAuth = async () => {
       scopes: [
         "user-read-private",
         "user-read-email",
-        // "user-library-read",
+        "user-library-read",
         // "playlist-read-private",
       ],
       redirectUri: REDIRECT_URI,
