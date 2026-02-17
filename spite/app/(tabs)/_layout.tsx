@@ -24,6 +24,7 @@ export default function TabLayout() {
         name="index"
         options={{
           title: hasAccessToken ? "hasAccessToken" : "No Access Token",
+          tabBarLabel: hasAccessToken ? "Logged In" : "Login",
           headerTitleAlign: "center",
           tabBarIcon: ({ color, focused }) => (
             <Pressable onPress={handleSpotifyAuth}>
