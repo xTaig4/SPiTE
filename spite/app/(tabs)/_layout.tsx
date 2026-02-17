@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { Pressable, StyleSheet } from "react-native";
 import { useTheme } from "@/hooks/use-theme";
 import { Image } from "expo-image";
@@ -7,12 +7,14 @@ import { spotifyAuth } from "../services/auth/spotifyAuth";
 
 export default function TabLayout() {
   const { theme } = useTheme();
+  const [hasAccessToken, setAccessToken] = useState(false);
 
   const handleSpotifyAuth = async () => {
     const tokens = await spotifyAuth();
     if (tokens) {
       console.log("Access Token:", tokens.accessToken);
       console.log("Refresh Token:", tokens.refreshToken);
+      setAccessToken(true);
     }
   };
 
@@ -21,7 +23,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "SPiTE",
+          title: hasAccessToken ? "hasAccessToken" : "No Access Token",
           headerTitleAlign: "center",
           tabBarIcon: ({ color, focused }) => (
             <Pressable onPress={handleSpotifyAuth}>

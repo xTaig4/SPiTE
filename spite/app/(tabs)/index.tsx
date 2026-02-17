@@ -9,12 +9,11 @@ import Favourites from "@/app/components/Favourites";
 export default function HomeScreen() {
   const { theme } = useTheme();
   const styles = createStyles(theme);
-
   const [cover, setCover] = useState(
     "https://i.pinimg.com/736x/be/7e/f6/be7ef6f955a1b1c6a9007f8497c2a0e1.jpg",
   );
 
-  const playList = [
+  const coverArt = [
     "https://i.pinimg.com/736x/43/35/0a/43350a80dfb2fc1f68d2532012e0e95a.jpg",
     "https://i.pinimg.com/1200x/45/6e/0f/456e0f3e6c257a56c47faa0e3e412732.jpg",
     "https://i.pinimg.com/1200x/d4/9f/f5/d49ff5a0d7b892e183f317cca549d040.jpg",
@@ -25,13 +24,13 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.pageContainer}>
-      <Favourites setCover={setCover} playList={playList} />
+      <Favourites setCover={setCover} playList={coverArt} />
       <View>
         {cover ? (
           <Image style={styles.coverContent} source={{ uri: cover }} />
         ) : null}
       </View>
-      <PlayButton setCover={setCover} playList={playList} />
+      <PlayButton setCover={setCover} playList={coverArt} />
     </View>
   );
 }
