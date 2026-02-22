@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { get } from "request";
 
 export function playService(
   accessToken: string,
@@ -56,5 +57,18 @@ export function playService(
     }
   }
 
-  return { isPlaying, pausePlayback, resumePlayback };
+  async function getPlayBackState(accessToken: string) {
+    try {
+      const response = await fetch(`https://api.spotify.com/v1/me/player`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return error;
+    }
+  }
+
+  return { isPlaying, pausePlayback, resumePlayback, getPlayBackState };
 }
