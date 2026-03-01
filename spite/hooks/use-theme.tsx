@@ -1,31 +1,5 @@
-import React, { ReactNode, useContext, useState } from "react";
-import { Themes, type Theme } from "../constants/themes";
-
-type ThemeType = "light" | "dark";
-
-interface ThemeContextType {
-  theme: Theme;
-  isDark: boolean;
-  toggleTheme: () => void;
-}
-
-const ThemeContext = React.createContext<ThemeContextType | undefined>(
-  undefined,
-);
-
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDark, setIsDark] = useState(false);
-
-  const theme = isDark ? Themes.dark : Themes.light;
-
-  const toggleTheme = () => setIsDark(!isDark);
-
-  return (
-    <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
-};
+import { useContext } from "react";
+import { ThemeContext } from "@/app/context/ThemeContext";
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
